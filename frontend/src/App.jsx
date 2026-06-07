@@ -10,7 +10,6 @@ import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    
     <AuthProvider>
       <BrowserRouter>
         <Navbar />
@@ -18,7 +17,6 @@ function App() {
           <Route path="/login"  element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          
           <Route path="/dashboard" element={
             <ProtectedRoute><Dashboard /></ProtectedRoute>
           } />
@@ -26,7 +24,6 @@ function App() {
             <ProtectedRoute><ProjectDetail /></ProtectedRoute>
           } />
 
-          
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
