@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const Login = () => {
   const [form, setForm]   = useState({ email: '', password: '' });
@@ -34,10 +34,10 @@ const Login = () => {
   return (
     <div className="auth-wrapper">
       <div className="auth-card">
-        <h2>Welcome back 👋</h2>
+        <h2>Welcome back</h2>
         <p>Sign in to manage your projects</p>
 
-        {error && <div className="error-msg">⚠️ {error}</div>}
+        {error && <div className="error-msg">{error}</div>}
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">

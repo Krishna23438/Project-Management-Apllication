@@ -14,10 +14,23 @@ import taskrouter from './routes/taskRoutes.js';
 await connectDB();
 
 const app = express();
-app.use(cors({ origin: process.env.FRONTEND_URL }));
+const allowedOrigins = [
+  process.env.FRONTEND_URL,
+  'http://localhost:5173',  // local dev
+  'http://localhost:3000',
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
+    cb(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+}));
+
 app.use(express.json());
 
-
+app.get('/api/health', (_, res) => res.json({ status: 'ok' }));
 
 app.use('/api/user', router)
 
@@ -36,3 +49,5 @@ app.use((err, req, res, next) => {
 app.listen(process.env.PORT || 5000, () => 
   console.log(`Server running on port ${process.env.PORT}`)
 );
+
+export default app;

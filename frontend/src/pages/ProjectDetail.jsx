@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
-import TaskCard from '../components/TaskCard';
+import TaskCard from '../components/TaskCard.jsx';
 
 const STATUSES = ['todo', 'in-progress', 'done'];
 
@@ -92,7 +92,7 @@ const ProjectDetail = () => {
   if (error && !project) return (
     <div className="page">
       <div className="empty-state">
-        <div className="icon">⚠️</div>
+        <div className="icon"></div>
         <p>{error}</p>
         <button className="back-btn" onClick={() => navigate('/dashboard')} style={{marginTop:'1rem'}}>
           ← Back to Dashboard
@@ -119,7 +119,7 @@ const ProjectDetail = () => {
         </p>
       </div>
 
-      {error && <div className="error-msg" style={{marginBottom:'1rem'}}>⚠️ {error}</div>}
+      {error && <div className="error-msg" style={{marginBottom:'1rem'}}> {error}</div>}
 
       {/* Add Task Form */}
       <div className="create-form">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../api/axios';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from '../components/ProjectCard.jsx';
 
 const Dashboard = () => {
   const [projects, setProjects] = useState([]);
@@ -51,7 +51,7 @@ const Dashboard = () => {
     }
   };
 
-  if (loading) return <div className="loading">⏳ Loading your projects...</div>;
+  if (loading) return <div className="loading"> Loading your projects...</div>;
 
   return (
     <div className="page">
@@ -89,7 +89,7 @@ const Dashboard = () => {
       {/* Projects Grid */}
       {projects.length === 0 ? (
         <div className="empty-state">
-          <div className="icon">📂</div>
+          <div className="icon"></div>
           <p>No projects yet. Create your first one above!</p>
         </div>
       ) : (

@@ -1,2 +1,0 @@
-username: projectManagerApplication
-password : krishnagupta2402

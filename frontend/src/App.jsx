@@ -1,14 +1,16 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
-import Navbar from './components/Navbar';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
-import ProjectDetail from './pages/ProjectDetail';
+import { AuthProvider } from './context/AuthContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import Navbar from './components/Navbar.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import ProjectDetail from './pages/ProjectDetail.jsx';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
+    
     <AuthProvider>
       <BrowserRouter>
         <Navbar />
@@ -30,6 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
+    
   );
 }
 

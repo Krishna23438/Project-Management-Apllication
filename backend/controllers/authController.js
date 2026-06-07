@@ -31,13 +31,3 @@ export const login = async (req, res) => {
   res.json({ token: generateToken(user._id), name: user.name });
 };
 
-// API to get user data 
-export const getUser = async (req, res) =>{
-  try {
-    const user = req.user;
-    return res.json({success:true, user})
-
-  } catch (error) {
-      return res.json({success: false, message: error.message})  
-  }
-}
