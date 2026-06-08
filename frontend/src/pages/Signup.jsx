@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../api/axios';
-import { useAuth } from '../context/AuthContext,jsx';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const Signup = () => {
   const [form, setForm]   = useState({ name: '', email: '', password: '' });
